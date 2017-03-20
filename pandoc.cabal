@@ -105,6 +105,8 @@ Data-Files:
                  data/abbreviations
                  -- sample lua custom writer
                  data/sample.lua
+                 -- pandoc lua module
+                 data/pandoc.lua
                  -- bash completion template
                  data/bash_completion.tpl
                  -- documentation
@@ -233,6 +235,7 @@ Extra-Source-Files:
                  test/odt/odt/*.odt
                  test/odt/markdown/*.md
                  test/odt/native/*.native
+                 test/lua/strmacro.lua
 Source-repository head
   type:          git
   location:      git://github.com/jgm/pandoc.git
@@ -283,6 +286,7 @@ Library
                  pandoc-types >= 1.17 && < 1.18,
                  aeson >= 0.7 && < 1.2,
                  aeson-pretty >= 0.8 && < 0.9,
+                 hslua-aeson >= 0.1.0.2 && < 1,
                  tagsoup >= 0.13.7 && < 0.15,
                  base64-bytestring >= 0.1 && < 1.1,
                  zlib >= 0.5 && < 0.7,
@@ -398,6 +402,7 @@ Library
                    Text.Pandoc.Writers.Muse,
                    Text.Pandoc.Writers.Math,
                    Text.Pandoc.Writers.Shared,
+                   Text.Pandoc.Lua,
                    Text.Pandoc.PDF,
                    Text.Pandoc.UTF8,
                    Text.Pandoc.Templates,
@@ -436,6 +441,7 @@ Library
                    Text.Pandoc.Readers.Org.ParserState,
                    Text.Pandoc.Readers.Org.Parsing,
                    Text.Pandoc.Readers.Org.Shared,
+                   Text.Pandoc.Lua.PandocModule,
                    Text.Pandoc.CSS,
                    Text.Pandoc.UUID,
                    Text.Pandoc.Slides,
@@ -524,6 +530,7 @@ Test-Suite test-pandoc
   Other-Modules:  Tests.Old
                   Tests.Command
                   Tests.Helpers
+                  Tests.Lua
                   Tests.Shared
                   Tests.Readers.LaTeX
                   Tests.Readers.HTML
